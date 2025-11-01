@@ -15,6 +15,11 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files from 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Serve admin.html
+app.get('/admin.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
 // Product catalog with prices
 const products = {
     'fish_feed': { name: 'Fish Feed', minQty: 10, price: 500, unit: 'kg' },
